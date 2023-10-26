@@ -1,0 +1,46 @@
+﻿@model RegistoModel
+@{
+    ViewData["title"] = "Apagar registo";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4 text-primary mt-5">Apagar registo</h1>
+
+    </div>
+
+    <form method="post" asp-controller="RegistoCarros" asp-action="ApagarRegisto">
+        <input type="hidden" asp-for="Id" />
+        <h2 class="text-primary mt-4">Deseja apagar este Registo?</h2>
+
+        <div class="mb-3">
+            <label for="Marca" class="form-label">Marca</label>
+            <input type="text" class="form-control" asp-for="Marca" id="Marca" placeholder="Marca do carro">
+            <span class="text-danger" asp-validation-for="Marca"></span>
+
+        </div>
+        <div class="mb-3">
+            <label for="Modelo" class="form-label">Modelo</label>
+            <input type="text" class="form-control" asp-for="Modelo" id="Modelo" placeholder="Modelo do carro">
+            <span class="text-danger" asp-validation-for="Modelo"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="Cor" class="form-label">Cor</label>
+            <input type="text" class="form-control" asp-for="Cor" id="Cor" placeholder="Cor do carro">
+            <span class="text-danger" asp-validation-for="Cor"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="Ano" class="form-label">Ano</label>
+            <input type="text" class="form-control" asp-for="Ano" id="Ano">
+            <span class="text-danger" asp-validation-for="Ano"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Apagar</button>
+            <a class="btn btn-primary w-50" asp-controller="RegistoCarros" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+
+</div>

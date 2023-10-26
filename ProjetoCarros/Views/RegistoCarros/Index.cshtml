@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RegistoModel>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+
+        <h1 class="display-4 text-primary mt-4 mb-4">Listagem de Registo de Carros</h1>
+        <a class="btn btn-primary" asp-controller="RegistoCarros" asp-action="NovoRegisto"><i class="bi bi-file-earmark-plus-fill mx-2"></i>Novo Registo</a>
+    </div>
+<div class="mb-5">
+        <table id="RegistoCarros" class="table table-hover rounded-lg">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Cor</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Data de atualização</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var registoCarros in Model)
+            {
+                <tr>
+                    <td>@registoCarros.Id</td>
+                    <td>@registoCarros.Marca</td>
+                    <td>@registoCarros.Modelo</td>
+                    <td>@registoCarros.Cor</td>
+                    <td>@registoCarros.Ano</td>
+                    <td>@registoCarros.DataUltimaAtualizacao</td>
+                        <th>
+                            <a asp-controller="RegistoCarros" asp-action="EditarRegisto" asp-route-id="@registoCarros.Id" class="btn btn-warning mx-2"><i class="bi bi-pencil-square mx-2"></i>Editar</a>
+                            <a asp-controller="RegistoCarros" asp-action="ApagarRegisto" asp-route-id="@registoCarros.Id" class="btn btn-danger mx-2"><i class="bi bi-trash-fill mx-2"></i>Eliminar</a>
+                        </th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+    </div>
+    </div>
